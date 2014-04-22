@@ -22,27 +22,37 @@ class GenericPlayer{
 		GenericPlayer(const string& s = "");
 		virtual ~GenericPlayer();
 
-		//
-		virtual bool isHitting() const = 0;
+		/*indicates whether a generic player wants to hit */
+		virtual bool wantToHit() const = 0;
 
-		//add card to the hand
-		virtual void addCard(Card *card_ptr) = 0;
-
-		//
-		bool isBusted() const;
-
-		//display the hand
-		void showHand() const;
-
-		//get name
+		/*get name of a generic player*/
 		string getName() const;
 
-		//get hand total
-		int getHandTotal() const;
+		/* indicates whether a generic player has busted
+		 * by going over 21
+		 */
+		bool isBusted() const;
+
+		/*announces that the generic player busts*/
+		virtual void busts() = 0;
+
+		/*annouces that the generic player hits*/
+		void hits() const;
+
+		/*annouces that the generic player hits*/
+		void stands() const;
+
+		/*annouces player state*/
+		void showState() const;
+
+		/*announces that the player has blackjack */
+		void blackjack()const;
+
+		Hand hand;
 
 	protected:
 		string name_;
-		Hand hand_;
+
 };
 
 #endif /* PLAYER_H_ */

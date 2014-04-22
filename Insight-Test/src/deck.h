@@ -14,7 +14,7 @@
 
 class GenericPlayer;
 
-class Deck : public Hand{
+class Deck{
 
 	public:
 		Deck();
@@ -27,11 +27,17 @@ class Deck : public Hand{
 		//shuffle cards
 		void shuffle();
 
-		//deal one card to a hand
-		void deal(GenericPlayer& gp);
+		//get one card from the top
+		Card* getCard();
 
-		//give additional cards to an generic player
-		void additionalCards(GenericPlayer& gp);
+		//put back one card
+		void  putCard(Card* card_ptr);
+
+		//clear the deck
+		void  clear();
+
+	private:
+		vector<Card*> cards_;
 };
 
 

@@ -24,13 +24,20 @@ class Hand {
 		//clears hand of all cards
 		void clear();
 
-		int getTotal() const;
+		//flip a card
+		void flipCard(int index);
 
-		void show() const;
+		int  getTotal() const;
+
+		void showHand() const;
+
+		void showTotal() const;
 
 		bool isEmpty();
 
-		void flipCard(int index);
+		bool isBlackjack() const;
+
+		void showLastCard() const;
 
 	protected:
 		vector<Card*> cards_;

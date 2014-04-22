@@ -21,12 +21,18 @@ class Game{
 
 		//plays the game of blackjack
 		void play();
-		void gameStarted();
-		void hitSelected(size_t index);
-		void standSelected(size_t index);
-		bool getStand();
-		void setStand(bool b);
+		void reset();
+		void start();
+		void dealAdditionalCards(GenericPlayer& player);
+		void deal();
+		void hit();
+		void hit(GenericPlayer& player);
+		void playersTurn();
+		void dealersTurn();
+		void showdown();
 
+		static const int min_players = 1;
+		static const int max_players = 7;
 	private:
 		Deck deck_;
 		Dealer dealer_;

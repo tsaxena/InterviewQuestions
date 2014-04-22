@@ -20,14 +20,9 @@ int Card::getValue() const
 {
 	//if a cards is face down, its value is 0
 	int value = 0;
-
 	if (this->is_face_up_){
 		//value is number showing on card
 		value = this->rank_;
-		// value is 10 for face cards
-		if (value > 10){
-			value = 10;
-		}
 	}
     return value;
 }
@@ -45,12 +40,12 @@ bool Card::isFaceUp(){
 string Card::toString(){
 	stringstream ss;
  	string str;
- 	const string RANKS[] = {"A", "2", "3", "4", "5", "6", "7", "8", "9","10", "J", "Q", "K"};
-    const string SUITS[] = {"s", "h", "d", "c"};
+ 	const string RANKS[] = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9","10", "Jack", "Queen", "King"};
+    const string SUITS[] = {"Spades", "Hearts", "Diamonds", "Clubs"};
 
     if (this->isFaceUp()){
-    	ss << RANKS[this->rank_]<< SUITS[this->suit_];
-    	cout << "[" << this->rank_ << "]" ;
+    	ss << RANKS[this->rank_]<< " of " <<SUITS[this->suit_];
+    	//cout << "[" << this->rank_ << "]" ;
     }else{
         ss << "xx";
     }

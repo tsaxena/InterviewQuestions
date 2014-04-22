@@ -13,25 +13,32 @@ Dealer::Dealer(const string& name) :  GenericPlayer(name)
 Dealer::~Dealer()
 { }
 
-bool Dealer::isHitting() const
+bool Dealer::wantToHit() const
 {
-	bool b = (hand_.getTotal() <= 16);
+	bool b = (hand.getTotal() <= 16);
 	return b;
 }
 
 void Dealer::flipFirstCard(bool b)
 {
-	if (!(this->hand_.isEmpty())){
+	if (!(this->hand.isEmpty())){
 		if(b){
-			this->hand_.flipCard(0);
+			this->hand.flipCard(0);
 		}
     }
 }
 
-void Dealer::addCard(Card *card_ptr)
-{
-	this->hand_.addCard(card_ptr);
+void Dealer::wins() const{
+	helper::printToConsole(this->getName() + " wins.");
 }
+
+void Dealer::busts(){
+	helper::printToConsole(this->name_ + ", you bust by going over 21.");
+}
+
+
+
+
 
 
 

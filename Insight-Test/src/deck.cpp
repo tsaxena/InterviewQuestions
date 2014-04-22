@@ -9,27 +9,23 @@
 
 Deck::Deck()
 {
-    	this->cards_.reserve(52);
     	this->populate();
 }
 
 Deck::~Deck()
-{ }
+{
+	this->clear();
+}
 
 void Deck::populate()
 {
-    	//clear();
-    	// create standard deck
-    	for (int suit_iter = Card::SPADES; suit_iter <= Card::CLUBS; ++suit_iter){
-        	for (int rank_iter = Card::ACE; rank_iter <= Card::KING; ++rank_iter){
-                	addCard(new Card(static_cast<Card::Rank>(rank_iter), static_cast<Card::Suit>(suit_iter)));
-        	}
-    	}
-
-    	/*for (int i = 0; i <= 51; ++i){
-    		cout << this->cards_[i]->toString();
-    	}
-    	cout << endl;*/
+	//clear();
+    // create standard deck
+    for (int suit_iter = Card::SPADES; suit_iter <= Card::CLUBS; ++suit_iter){
+        for (int rank_iter = Card::ACE; rank_iter <= Card::KING; ++rank_iter){
+        	this->putCard(new Card(static_cast<Card::Rank>(rank_iter), static_cast<Card::Suit>(suit_iter)));
+        }
+    }
 }
 
 void Deck::shuffle()
@@ -42,28 +38,29 @@ void Deck::shuffle()
     	}*/
 }
 
-void Deck::deal(GenericPlayer& gp)
-{
+Card* Deck::getCard(){
+	// check cards
 	if (!this->cards_.empty()) {
-		gp.addCard(this->cards_.back());
         this->cards_.pop_back();
-    }else {
-        cout << "Out of cards. Unable to deal.";
+        return this->cards_.back();
     }
+
+	cout << "Out of cards. Unable to deal.";
+    return NULL;
 }
 
-void Deck::additionalCards(GenericPlayer& gp){
-    // continue to deal a card as long as generic player isn't busted and
-    // wants another hit
-	while(!gp.isBusted() && gp.isHitting()){
-        this->deal(gp);
-        gp.showHand();
-	}
 
-	if(gp.isBusted()){
-		cout << gp.getName() << " busts" << endl;
+void Deck::putCard(Card* card_ptr){
+	this->cards_.push_back(card_ptr);
+}
+
+void Deck::clear(){
+	//iterate through vector, freeing all memory on the heap
+	for (int card_iter = 0; card_iter <= 51; ++card_iter){
+		delete this->cards_[card_iter];
 	}
 }
+
 
 
 

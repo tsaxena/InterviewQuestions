@@ -11,6 +11,8 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include "helper.h"
+
 using namespace std;
 
 class Card{

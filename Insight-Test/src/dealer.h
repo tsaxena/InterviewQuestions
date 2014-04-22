@@ -16,14 +16,19 @@ public:
 
 	virtual ~Dealer();
 
-	//flips over first card
+	/*flips over first card*/
 	void flipFirstCard(bool b);
 
-	//indicates whether the dealer is hitting - will always hit on 16 or less
-	virtual bool isHitting() const;
+	/*indicates whether the dealer is hitting -
+	 * will always hit on 16 or less
+	 */
+	virtual bool wantToHit() const;
 
-	//add card to player's hand
-	void addCard(Card *card_ptr);
+	/*announces that dealer has wins*/
+	void wins() const;
+
+	/*annouces that the dealer has bust */
+	void busts();
 
 };
 

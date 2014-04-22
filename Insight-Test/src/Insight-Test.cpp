@@ -6,37 +6,38 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
 #include "game.h"
 using namespace std;
 
 
-int main() {
-	cout << "!!!Welcome to Blackjack!!!" << endl; // prints !!!Hello World!!!
-
-	int no_of_players = 0;
-	cout << "How many players? " ;
-	cin >> no_of_players;
-	cin.clear();
-
-	vector<string> name_of_players(no_of_players);
+vector<string> getNameOfPlayers(int no_of_players){
+	vector<string> player_names(no_of_players);
 	for(int i = 0; i < no_of_players; i++){
-		cout << "Enter player name: ";
-		cin >> name_of_players[i];
+		helper::inputPrompt("Enter player name");
+		helper::getStringInput(player_names[i]);
 	}
+	return player_names;
+}
 
-	Game game(name_of_players);
-	char want_play;
-	while(true){
-		game.play();
-		cout << "Start new game ? y/n: ";
-		cin >>  want_play;
-		if(want_play == 'y' || want_play == 'Y' ){
-			continue;
-		}else{
-			cout << "Goodbye Blackjack";
-			break;
-		}
-	}
+
+int main() {
+	cout << "!!!Welcome to Multi-player Console Blackjack!!!" << endl;
+
+	/* get number of players and
+	 * names of each player
+	*/
+	helper::inputPrompt("Enter number of players [1-7]");
+	int no_of_players = helper::getNumberInput(Game::min_players, Game::max_players);
+	helper::printToConsole("Enter names of players");
+	vector<string> player_names = getNameOfPlayers(no_of_players);
+
+	Game game(player_names);
+	game.play();
+
+
 	return 0;
 }
+
+
+
+
