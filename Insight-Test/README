@@ -1,0 +1,30 @@
+
+Multi-player blackjack game
+----------------------------
+
+The game allows multiple players to play blackjack.
+The game has the following steps:
+
+Step 1: Enter the number of players and name of players.
+
+Step 2: Ask if the players want to quit or play
+        If the player wants to play then they place a bet
+	The bet should be less than the balance and at least 1.
+
+Step 3: 2 cards are dealt to all players. 
+
+Step 4: Ask each player if he wants more cards. Give more cards 
+        till the player decides to stand or he busts (total more than 21)
+        or he gets blackjack.
+
+Step 5: The dealer hits cards till he gets a total more than 16. 
+
+Step 6: If all player have bust, then start a new round. 
+        If dealer has bust, all non-bust players win. 
+	Otherwise all non-busted player with total greater than dealer win
+        and all non-busted players with total less than dealer lose.
+
+Step 7: start another round.
+
+
+All players who quit CANNOT join in later. 

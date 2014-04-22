@@ -22,16 +22,16 @@ class Card{
 		enum Suit {SPADES, HEARTS, DIAMONDS, CLUBS};
 
 	public:
-		// constructor
+		/*constructor */
 		Card(Rank r = ACE, Suit s = CLUBS, bool ifu = true);
 
-		//returns the value of a card, 1 - 11
+		/*returns the value of a card, 1 - 11*/
 		int getValue() const;
 
-		//flips a card; if face up, becomes face down and vice versa
+		/*flips a card; if face up, becomes face down and vice versa*/
 		void flip();
 
-		//indicates whether the card is up
+		/*indicates whether the card is up */
 		bool isFaceUp();
 
 		string toString();

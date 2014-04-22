@@ -16,9 +16,8 @@ GenericPlayer::~GenericPlayer(){
 
 bool GenericPlayer::isBusted() const
 {
-    	return (this->hand.getTotal() > 21);
+    return (this->hand.getTotal() > 21);
 }
-
 
 
 string GenericPlayer::getName() const
@@ -28,13 +27,13 @@ string GenericPlayer::getName() const
 
 
 void GenericPlayer::hits() const{
-	helper::printToConsole(this->getName() + " hits.");
-	this->hand.showLastCard();
-	this->showState();
+    helper::printToConsole(this->getName() + " hits.");
+    this->hand.showLastCard();
+    this->showState();
 }
 
 void GenericPlayer::blackjack() const{
-	helper::printToConsole(this->getName() + " , you have a blackjack.");
+    helper::printToConsole(this->getName() + " , you have a blackjack.");
 }
 
 void GenericPlayer::showState() const
@@ -45,7 +44,7 @@ void GenericPlayer::showState() const
 }
 
 void GenericPlayer::stands() const{
-	helper::printToConsole(this->getName() + " stands.\n");
+    helper::printToConsole(this->getName() + " stands.\n");
 }
 
 

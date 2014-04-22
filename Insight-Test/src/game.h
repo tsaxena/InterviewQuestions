@@ -23,12 +23,9 @@ class Game{
 		void play();
 		void reset();
 		void start();
-		void dealAdditionalCards(GenericPlayer& player);
 		void deal();
 		void hit();
 		void hit(GenericPlayer& player);
-		void playersTurn();
-		void dealersTurn();
 		void showdown();
 
 		static const int min_players = 1;
@@ -37,7 +34,6 @@ class Game{
 		Deck deck_;
 		Dealer dealer_;
 		vector<Player> players_;
-		bool stand_;
 };
 
 #endif /* GAME_H_ */

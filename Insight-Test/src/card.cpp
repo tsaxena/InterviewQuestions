@@ -55,7 +55,4 @@ string Card::toString(){
 }
 
 
-
-
-
 #endif /* CARD_CPP */

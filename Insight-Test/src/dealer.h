@@ -27,7 +27,7 @@ public:
 	/*announces that dealer has wins*/
 	void wins() const;
 
-	/*annouces that the dealer has bust */
+	/*announces that the dealer has bust */
 	void busts();
 
 };

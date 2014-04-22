@@ -30,16 +30,12 @@ void Deck::populate()
 
 void Deck::shuffle()
 {
-    	random_shuffle(this->cards_.begin(), this->cards_.end());
+    random_shuffle(this->cards_.begin(), this->cards_.end());
 
-    	/*cout << "after shuffle" << endl;
-    	for (int i = 0; i <= 51; ++i){
-    	    cout << this->cards_[i]->toString();
-    	}*/
 }
 
 Card* Deck::getCard(){
-	// check cards
+	/* check cards */
 	if (!this->cards_.empty()) {
         this->cards_.pop_back();
         return this->cards_.back();
@@ -55,7 +51,7 @@ void Deck::putCard(Card* card_ptr){
 }
 
 void Deck::clear(){
-	//iterate through vector, freeing all memory on the heap
+	/*iterate through vector, freeing all memory on the heap*/
 	for (int card_iter = 0; card_iter <= 51; ++card_iter){
 		delete this->cards_[card_iter];
 	}
