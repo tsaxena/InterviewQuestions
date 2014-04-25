@@ -1,3 +1,4 @@
+
 Multi-player blackjack game
 ----------------------------
 
@@ -27,9 +28,3 @@ Step 7: start another round.
 
 
 All players who quit CANNOT join in later. 
-
-
-To build 
----------
-make all
-
